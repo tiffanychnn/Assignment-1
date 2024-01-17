@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shoe Store</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<header class="header">
+		<div class="container">
+			<div class="flex space-between">
+				<div class="header__logo">
+					<h1>Shoe Store</h1>
+				</div>
+				<div class="header__currency">
+					<span class="curreny-symbol"><span>$</span></span>
+					<select name="currency" id="currency">
+						<option value="us" selected>United States</option>
+						<option value="canada">Canada</option>
+						<option value="mexico">Mexico</option>
+						<option value="germany">Germany</option>
+						<option value="spain">Spain</option>
+						<option value="0">Other</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section>
+
+		<div class="container">
+
+			<div class="shoes grid">
+
+				<div class="card" id="shoe-1">
+
+					<div class="card__image">
+						<img src="images/shoe-1.jpg" alt="">
+					</div>
+
+					<div class="card__content">
+						
+						<h3 class="card__title">Shoe 1</h3>
+						<p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia beatae praesentium illum eius ea in earum a quis impedit.</p>
+
+					</div>
+
+					<div class="card__footer">
+						<h4><span class="text-orange">Price:</span> <span class="shoe-3-price shoe-price">10.00</span> USD</h4>
+						<h4><span class="text-orange">Local Price:</span> <span class="converted-price"></span> <span class="currency-type"></span></h4>
+					</div>
+
+				</div>
+
+				<div class="card" id="shoe-2">
+
+					<div class="card__image">
+						<img src="images/shoe-2.jpg" alt="">
+					</div>
+
+					<div class="card__content">
+						
+						<h3 class="card__title">Shoe 1</h3>
+						<p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia beatae praesentium illum eius ea in earum a quis impedit.</p>
+
+					</div>
+
+					<div class="card__footer">
+						<h4><span class="text-orange">Price:</span> <span class="shoe-3-price shoe-price">14.00</span> USD</h4>
+						<h4><span class="text-orange">Local Price:</span> <span class="converted-price"></span> <span class="currency-type"></span></h4>
+					</div>
+
+				</div>
+				
+				<div class="card" id="shoe-3">
+
+					<div class="card__image">
+						<img src="images/shoe-3.jpg" alt="">
+					</div>
+
+					<div class="card__content">
+						
+						<h3 class="card__title">Shoe 1</h3>
+						<p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia beatae praesentium illum eius ea in earum a quis impedit.</p>
+
+					</div>
+
+					<div class="card__footer">
+						<h4><span class="text-orange">Price:</span> <span class="shoe-3-price shoe-price">300.00</span> USD</h4>
+						<h4><span class="text-orange">Local Price:</span> <span class="converted-price"></span> <span class="currency-type"></span></h4>
+					</div>
+
+				</div>				
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<script>
+
+		function convert_currency(shoe_card_id) {
+
+			const price = Number(document.querySelector(shoe_card_id + " .shoe-price").innerHTML);
+			const current_currency = document.querySelector("#currency").value;
+			const jpy_factor = 141.72;
+			const cad_factor = 1.32;
+			const mxn_factor = 17.11;
+			const euro_factor = .91;
+			
+			let converted_price;
+			
+			switch(current_currency) {
+				case "us":
+					
+					document.querySelector(shoe_card_id + " .converted-price").innerHTML = price.toFixed(2);
+					document.querySelector(shoe_card_id + " .currency-type").innerHTML = "USD";
+
+					break;
+				case "canada":
+
+					converted_price =  price * cad_factor;
+
+					document.querySelector(shoe_card_id + " .converted-price").innerHTML = converted_price.toFixed(2);
+					document.querySelector(shoe_card_id + " .currency-type").innerHTML = "CAD";				
+					
+					break;					
+
+				case "mexico":
+
+					converted_price =  price * mxn_factor;
+
+					document.querySelector(shoe_card_id + " .converted-price").innerHTML = converted_price.toFixed(2);
+					document.querySelector(shoe_card_id + " .currency-type").innerHTML = "MXN";						
+					
+					break;		
+
+				case "germany": 
+				case "spain": 
+
+					converted_price =  price * euro_factor;
+
+					document.querySelector(shoe_card_id + " .converted-price").innerHTML = converted_price.toFixed(2);
+					document.querySelector(shoe_card_id + " .currency-type").innerHTML = "EURO";				
+
+					break;
+
+				default:
+					
+					document.querySelector(shoe_card_id + " .converted-price").innerHTML = "Not available in your location";
+					document.querySelector(shoe_card_id + " .currency-type").innerHTML = "";	
+				
+					break;
+
+			}
+
+
+		}
+
+		function init() {
+			convert_currency("#shoe-1");
+			convert_currency("#shoe-2");
+			convert_currency("#shoe-3");			
+		}
+
+		document.querySelector("#currency").addEventListener("change", init);
+
+		init();
+
+	</script>
+
+</body>
+</html>

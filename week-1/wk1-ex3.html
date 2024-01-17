@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+</head>
+<body>
+   
+    <h1>What time is it?</h1>
+
+    <p>Current time: <span id="Current-time"></span></p>
+
+    <div>
+    
+        <button onclick="document.querySelector('#Current-time').innerText = 'Party time!'; ">Inline JavaScript</button>
+
+        <button id="function-call">Function Call</button>
+        
+    </div>
+
+    <script>
+
+        // function name () {}
+        // this creates a new set of code instructions that can be called later
+        // all of the statements between the curly braces will run when we call the cuntion later
+        function update_time() {
+
+            // reminder:
+            // document is the "browsers version of the loaded site"
+            // .querySelector(".css-selectors") selects a matching 
+
+            document.querySelector("#Current-time").innerText = "Sleep time!";
+
+            document.querySelector("#Current-time").style.color = "blue";
+        }
+        
+        // this is a event listener
+        // a event listener runs code when a specific even happens on a element
+        // d.qS("fuction-call") is the element
+        document.querySelector("#function-call").addEventListener("click", update_time);
+
+    </script>
+
+</body>
+</html>

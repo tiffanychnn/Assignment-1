@@ -1,0 +1,114 @@
+:root {
+    --header-font: 'Roboto Condensed', sans-serif;
+    --body-font: 'Cabin', sans-serif;
+    --blue: #003049;
+    --red: #d62828;
+    --orange: #f77f00;
+    --yellow: #fcbf49;
+    --beige: #eae2b7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+body {
+    background-color: var(--beige);
+}
+
+header {
+    background-color: var(--red);
+    color: var(--beige);
+    padding: 1rem 1.5rem;
+}
+
+p {
+    font-family: var(--body-font);
+}
+
+select {
+    border: unset;
+    border-radius: 1rem;
+    padding: 0.25rem .5rem;
+    min-width: 10rem;
+    display: inline-block;
+}
+
+.curreny-symbol {
+    font-family: var(--body-font);
+    display: inline-block;
+    background-color: var(--beige);
+    color: var(--red);
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center; 
+    border-radius: 1rem;
+    padding-top: 2px;
+}
+
+.text-orange {
+    color: var(--orange);
+}
+
+.container {
+    max-width: 67.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.shoes {
+    margin: 3rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.shoes .card {
+    grid-column: span 4;
+}
+
+.card__image img {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+}
+
+.card__image {
+    margin-bottom: 1rem;
+}
+
+.card__title {
+    margin-bottom: 0.5rem;
+}
+
+.card__footer {
+    margin-top: 1rem;
+}
+
+.card__footer h4 {
+    color: var(--red)
+}
+
+.card__footer .shoe-price {
+    color: var(--red);
+}
+
+.card__footer .converted-price {
+    color: var(--red);
+}

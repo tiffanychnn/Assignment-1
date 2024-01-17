@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <button id="global"></button>
+        <button id="local"></button>
+    </div>
+
+    <script>
+
+    // store the button in a variable for use later on
+    const global_btn = document.querySelector("#global");
+
+    // creates a variable and stores a number inside of it.
+    let count = 0;
+
+    // creates a new function that will be ran via the event handler below
+    function test_global() {
+        // ++; adds one to the current variable .ie. if count is 0, 0+1 = 1
+        // count is the global scope (outside a function)
+        count++;
+
+        // select the result div from the page and change the content
+        document.querySelector("#result").innerHTML = count;
+    }
+
+    function test_local() {
+
+        let count = 100;
+
+        // adds one to count
+        count++;
+
+        //  d.qS() takes a css selector to "grab" a corrosponding element
+        document.querySelector("#result").innerHTML = count;
+
+   
+    }
+
+         // run the function above when the button is clicked
+        global_btn.addEventListener("click", test_global);
+        global_btn.addEventListener("click", test_local);
+
+        //  const_btn - this is a reference to the button on the screen
+        // .addEventListener runs code when a event is fired on that element
+        //  when "click" happens, the instructions/statements in test_const are ran
+        const_btn.addEventListener("click", test_const);    
+
+    </script>
+
+</body>
+</html>
+

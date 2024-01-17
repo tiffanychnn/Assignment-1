@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK2_EX2</title>
+	<link rel="stylesheet" href="css/ex-3.css">
+</head>
+<body>
+ 
+	<h1>MDIA 2294: WK2_EX2</h1>
+	
+	<h2>Course Mark Calculator</h2>
+	
+	<p>Please enter marks as their decimal equivalent.</p>
+	
+	<table>
+		<tr>
+			<td>Professionalism:</td>
+			<td><input id="prof-value" type="text" /></td>
+			<td>@10% = <span id="prof-grade"></span></td>
+		</tr>
+		<tr>
+			<td>Assignments (all):</td>
+			<td><input id="assign-value" type="text" /></td>
+			<td>@40% = <span id="assign-grade"></span></td>
+		</tr>
+		<tr>
+			<td>Quiz 1:</td>
+			<td><input id="quiz-1-value" type="text" /></td>
+			<td>@10% = <span id="quiz-1-grade"></span></td>
+		</tr>
+		<tr>
+			<td>Quiz 2:</td>
+			<td><input id="quiz-2-value" type="text" /></td>
+			<td>@10% = <span id="quiz-2-grade"></span></td>
+		</tr>
+		<tr>
+			<td>Final Project:</td>
+			<td><input id="project-value" type="text" /></td>
+			<td>@30% = <span id="project-grade"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button id="calculate-marks">Calculate</button>
+			</td>
+			<td style="border-top:solid 1px black; font-weight:bold;">
+				Final: <span id="result"></span>
+			</td>	        
+		</tr>
+	</table>
+ 
+	<script>
+		
+		const calc_btn = document.querySelector("#calculate-marks");
+
+		function calc_grade() {
+
+			let line_total = 0;
+			let grand_total = 0;
+
+			// go into the web page, select the <input> with the id of prof value ands store the user entered value
+			const prof_value = document.querySelector("#prof-value").value;
+
+			line_total = prof_value * 10
+
+			document.querySelector("#prof-grade").innerHTML = line_total;
+
+			grand_total += line_total;
+
+			document.querySelector("#assign-grade").innerHTML = line_total;		
+			const assignment_value = document.querySelector("#assign-value").value
+
+			line_total = assignment_value * 40;
+
+			document.querySelector("#assign-grade").innerHTML = line_total
+
+			console.log(prof_value);
+		}
+
+		calc_btn.addEventListener("click", calc_grade);
+
+	</script>
+ 
+ 
+</body>
+</html>

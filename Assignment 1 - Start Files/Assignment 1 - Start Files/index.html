@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294</title>
+	
+	<style>
+	    thead{
+	        font-weight:bold;
+	    }
+	    
+	    td{
+	        padding-left:5px;
+	        padding-right:5px;	        
+	    }
+	    
+	    td.sub-total{
+	        text-align:right;	        
+	    }
+	</style>
+</head>
+<body>
+	<h1>MDIA 2294: ACME Corp Invoice</h1>
+	
+	<table>
+	    <thead>
+	        <tr>
+	            <td>ITEM</td>
+	            <td>DESCRIPTION</td>
+	            <td>QTY</td>
+	            <td>PRICE</td>
+	            <td>LINE TOTAL</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>1</td>
+	            <td><input id="line-1-description" type="text" size="40" value="Anvil" /></td>
+	            <td><input id="line-1-quantity" type="text" size="3" value="5" /></td>
+	            <td><input id="line-1-price" type="text" size="6" value="35.00" /></td>
+	            <td class="sub-total"><span id="line-1"></span></td>
+	        </tr>
+	        <tr>
+	            <td>2</td>
+	            <td><input id="line-2-description" type="text" size="40" value="Rocket Skates (each)" /></td>
+	            <td><input id="line-2-quantity" type="text" size="3" value="2" /></td>
+	            <td><input id="line-2-price" type="text" size="6" value="24.99" /></td>
+	            <td class="sub-total"><span id="line-2"></span></td>
+	        </tr>
+	        <tr>
+	            <td>3</td>
+	            <td><input id="line-3-description" type="text" size="40" value="Giant Magnet" /></td>
+	            <td><input id="line-3-quantity" type="text" size="3" value="1" /></td>
+	            <td><input id="line-3-price" type="text" size="6" value="125.50" /></td>
+	            <td class="sub-total"><span id="line-3"></span></td>
+	        </tr>
+	        <tr>
+	            <td>4</td>
+	            <td><input id="line-4-description" type="text" size="40" value="Ball bearings" /></td>
+	            <td><input id="line-4-quantity" type="text" size="3" value="1000" /></td>
+	            <td><input id="line-4-price" type="text" size="6" value="0.25" /></td>
+	            <td class="sub-total"><span id="line-4"></span></td>
+	        </tr>
+	        <tr>
+	            <td>5</td>
+	            <td><input id="line-5-description" type="text" size="40" value="Portable holes" /></td>
+	            <td><input id="line-5-quantity" type="text" size="3" value="12" /></td>
+	            <td><input id="line-5-price" type="text" size="6" value="15.25" /></td>
+	            <td class="sub-total"><span id="line-5"></span></td>
+	        </tr>
+	    </tbody>
+	    <tfoot>
+	        <tr>
+	            <td colspan="4" style="text-align:right;">SUB TOTAL</td>  
+	            <td class="sub-total"><span id="sub-total"></span></td>	        
+	        </tr>
+	        <tr>
+	            <td colspan="4" style="text-align:right;">DISCOUNT</td>  
+	            <td class="sub-total"><span id="discount"></span></td>	        
+	        </tr>
+	        <tr>
+	            <td colspan="4" style="text-align:right;">TAX</td>  
+	            <td class="sub-total"><span id="tax"></span></td>	        
+	        </tr>
+	        <tr>
+	            <td colspan="4" style="text-align:right;">TOTAL</td>  
+	            <td class="sub-total" style="border-top:solid black 1px"><span id="Total"></span></td>	        
+	        </tr>
+	    </tfoot>	    
+	</table>
+	
+	<div><button id="calculate">Calculate</button></div>
+	<div>NOTE: discounts of 10% are given to orders over $250</div>
+
+	<script>
+	    function calculate() {
+
+			//
+
+			console.log("Hello Airrick!");
+
+			//
+
+			const line_1_qty = document.querySelector("#line-1-quantity").value;
+			console.log(line_1_qty);
+
+			const line_1_price = document.querySelector("#line-1-price").value;
+			console.log(line_1_price);
+
+			console.log(line_1_qty * line_1_price);
+			document.querySelector("#line-1").innerText = line_1_qty * line_1_price;
+
+			//
+			
+			const line_2_qty = document.querySelector("#line-2-quantity").value;
+			console.log(line_2_qty);
+
+			const line_2_price = document.querySelector("#line-2-price").value;
+			console.log(line_2_price);
+
+			console.log(line_2_qty  * line_2_price);
+			document.querySelector("#line-2").innerText = line_2_qty  * line_2_price;
+
+			//
+
+			const line_3_qty = document.querySelector("#line-3-quantity").value;
+			console.log(line_3_qty);
+
+			const line_3_price = document.querySelector("#line-3-price").value;
+			console.log(line_3_price);
+
+			console.log(line_3_qty * line_3_price);
+			document.querySelector("#line-3").innerText = line_3_qty * line_3_price;
+
+			//
+
+			const line_4_qty = document.querySelector("#line-4-quantity").value;
+			console.log(line_4_qty);
+
+			const line_4_price = document.querySelector("#line-4-price").value;
+			console.log(line_4_price);
+
+			console.log(line_4_qty * line_4_price);
+			document.querySelector("#line-4").innerText = line_4_qty * line_4_price;
+
+			// 
+
+			const line_5_qty = document.querySelector("#line-5-quantity").value;
+			console.log(line_5_qty);
+
+			const line_5_price = document.querySelector("#line-5-price").value;
+			console.log(line_5_price);
+
+			console.log(line_5_qty * line_5_price);
+			document.querySelector("#line-5").innerText = line_5_qty * line_5_price;
+
+
+
+
+            /*
+
+                Use the following steps to complete your assignment.
+
+                @NOTE: Do not include these comments in your final submission. 
+                       Your final submission MUST include your own comments.
+
+                1. Retrieve the quantities & price for each line
+                2. Calculate the total for each line
+                3. Display each line total to the screen (Be sure to display the result to two decimal places)
+                4. Keep a running total for all lines
+                5. Display the sub-total to screen
+                6. Calculate if the discount should be applied, if so display the discount value to the screen
+                7. Calculate the tax on the sub-total
+                8. Display the calculated to the screen to two decimal places
+                
+            */
+
+		
+	    }
+
+		document.querySelector("#calculate").addEventListener("click", calculate);
+	
+	
+    </script>
+</body>
+</html>
