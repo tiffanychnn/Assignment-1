@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK4_EX1</title>
+	<link rel="stylesheet" href="css/ex-1.css">
+</head>
+
+<body>
+
+	<h1>MDIA 2294: WK4_EX1</h1>
+
+	<h2>Course Mark Calculator</h2>
+
+	<p>Please enter marks as their decimal equivalent.</p>
+
+	<table>
+		<tr>
+			<td>Professionalism:</td>
+			<td><input id="prof" type="text" /></td>
+			<td>@10% = <span id="prof-mark"></span></td>
+		</tr>
+		<tr>
+			<td>Assignments (all):</td>
+			<td><input id="assign" type="text" /></td>
+			<td>@40% = <span id="assign-mark"></span></td>
+		</tr>
+		<tr>
+			<td>Quiz 1:</td>
+			<td><input id="quiz-1" type="text" /></td>
+			<td>@10% = <span id="quiz-1-mark"></span></td>
+		</tr>
+		<tr>
+			<td>Quiz 2:</td>
+			<td><input id="quiz-2" type="text" /></td>
+			<td>@10% = <span id="quiz-2-mark"></span></td>
+		</tr>
+		<tr>
+			<td>Final Project:</td>
+			<td><input id="project" type="text" /></td>
+			<td>@30% = <span id="project-mark"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td style="border-top:solid 1px black;">
+				<div style="font-weight:bold;">Final: <span id="result"></span></div>
+				<div style="font-style:italic;" id="result-note"></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" id="message"></td>
+		</tr>
+	</table>
+
+	<script>
+
+		// Store the button in a variable
+		const calc_btn = document.querySelector("#calculate");
+
+		// One method of separating constants from other variables is by using ALL_CAPS
+		const PROF_FACTOR = .10;
+		const ASSIGN_FACTOR = .40;
+		const QUIZ_FACTOR = .10;
+		const PROJ_FACTOR = .30;
+
+		let error;
+
+		// Create a new function 
+		function calc_marks() {
+
+			error = false;
+
+			// Create a new variable to store a total for each line
+			// let line_total = 0;  
+
+			// Create a new variable to store the running total
+			let total_sum = 0;
+
+
+			// Professionalism
+			// ----------
+
+			// Store the value of the input multiplied by the weight in the line total variable
+			total_sum += calc_single_grade('prof', PROF_FACTOR);
+
+			// Assignments
+			// ----------
+
+			// Store the value of the input multiplied by the weight in the line total variable
+			total_sum += calc_single_grade('assign', ASSIGN_FACTOR);
+
+
+			// Quiz 1
+			// ----------
+
+			// Store the value of the input multiplied by the weight in the line total variable
+			total_sum = calc_single_grade('quiz-1', QUIZ_FACTOR);
+
+
+			// Quiz 2
+			// ----------
+
+			// Store the value of the input multiplied by the weight in the line total variable
+			total_sum += calc_single_grade('quiz-2', QUIZ_FACTOR);
+
+
+			// Projects
+			// ----------
+
+			total_sum += calc_single_grade('project', PROJ_FACTOR);
+
+
+			// Display The Final Result
+			// ----------
+
+			// Finally display the total on screen
+			// Note that we concatenate a % character onto the end for formatting
+			// Here we've added .toFixed(2) to total_sum
+			//		This method will change a number to a decimal formatted string
+			//		Example: 24 would become "24.00" OR 13.7777777 would be come "13.78"
+			document.querySelector("#result").innerHTML = total_sum.toFixed(2) + "%";
+
+
+			if (!error) {
+				// This line a conditional operator to write "PASS" or "FAIL" to the text inside of the #result-content element on screen.
+				// Syntax:
+				//	(x > ?): "x is larger" : "x is not larger";
+				//document.querySelector("#result-note").innerHTML = (total >= 50) ? "PASS" : "FAIL";
+
+				// Using an if statement to write an style "PASS" or "FAIL" depending on user input
+				// @NOTE: if the condition (total < 50) is true, the code between the first curly braces will and the else block will not.
+				//	If it is false, the first block will not run, bu the else block will
+				if (total_sum < 50) {
+
+					// Changes the CSS property of color of the selected element
+					document.querySelector("#result").style.color = "rgb(255,0,0)";
+
+					// Changes the text of the selected element to the "FAIL GRADE"
+					document.querySelector("#result-note").innerText = "FAIL GRADE";
+
+				} else if (total_sum >= 80) {
+
+					// Changes the CSS property of color of the selected element
+					document.querySelector("#result").style.color = "rgb(0,0,255)";
+
+					// Changes the text of the selected element to the "HONOURS GRADE"
+					document.querySelector("#result-note").innerText = "HONOURS";
+
+				} else {
+
+					// Changes the CSS property of color of the selected element
+					document.querySelector("#result").style.color = "rgb(0,0,0)";
+
+					// Changes the text of the selected element to the "PASSING GRADE"
+					document.querySelector("#result-note").innerText = "PASSING GRADE";
+
+				}
+			} else {
+
+				// Set the text of the result to "----" 
+				document.querySelector("#result").innerHTML = "----";
+
+				// Set the colour of the text to red
+				document.querySelector("#result").style.color = "rgb(255,0,0)";
+
+			}
+		}
+
+		const calc_single_grade = (root, weight) => {
+			// root will contain whatever is passed in when the function is called.
+			//		Example: calc_single_grade('prof', 10);
+			// root will be concatenated with '#' & '-value' to create a string like: '#prof-value'
+			// This will be used to select the element on screen
+			// .value returns the user's entry into the input
+			const input_value = Number.parseInt(document.querySelector("#" + root).value);
+
+			let return_value;
+
+			if (Number.isNaN(input_value) || input_value < 0 || input_value > 100) {
+
+				error = true;
+
+				// Assign 0 to return_value
+				return_value = 0;
+
+				// Clear the input field by assigning an empty string to the value property
+				document.querySelector("#" + root).value = "";
+
+				// Clear the grade line by assigning 0 to the innerHTML property
+				document.querySelector("#" + root + "-mark").innerHTML = (0).toFixed(2);
+
+			} else {
+
+				// If the input_value is a number, assign the calculated grade to return_value
+				return_value = input_value * weight;
+
+				// Then assign the calculated grade to the input field's value property
+				document.querySelector("#" + root).value = input_value;
+
+				// Display the total on screen by assigning the calculated grade to the innerHTML property
+				document.querySelector("#" + root + "-mark").innerHTML = return_value.toFixed(2);
+
+
+			}
+
+			return return_value;
+
+		} // end of calc_single_grade
+
+		calc_btn.addEventListener("click", calc_marks);
+
+	</script>
+</body>
+
+</html>

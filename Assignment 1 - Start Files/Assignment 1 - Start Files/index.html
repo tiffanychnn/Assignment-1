@@ -93,93 +93,113 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
+
+		// function is where we put our info of what we want to happen when do a certain action (ex: calculate)
 	    function calculate() {
+		
+			// let can change. depending on that qty of what the person is looking at for our subtotal, it wont be the same if the qty changes (which would also affect your total)
+			let sub_total = 0;
+			let total = 0
 
 			//
-
 			console.log("Hello Airrick!");
 
 			//
-
 			const line_1_qty = document.querySelector("#line-1-quantity").value;
 			console.log(line_1_qty);
 
+			//
 			const line_1_price = document.querySelector("#line-1-price").value;
 			console.log(line_1_price);
-
+			
+			//
 			console.log(line_1_qty * line_1_price);
-			document.querySelector("#line-1").innerText = line_1_qty * line_1_price;
+			document.querySelector("#line-1").innerText = "$" + (line_1_price * line_1_qty).toFixed(2);
 
 			//
-			
+			sub_total += line_1_price * line_1_qty;
+
+			//
 			const line_2_qty = document.querySelector("#line-2-quantity").value;
 			console.log(line_2_qty);
 
+			//
 			const line_2_price = document.querySelector("#line-2-price").value;
 			console.log(line_2_price);
 
+			//
 			console.log(line_2_qty  * line_2_price);
-			document.querySelector("#line-2").innerText = line_2_qty  * line_2_price;
+			document.querySelector("#line-2").innerText = "$" + (line_2_qty  * line_2_price).toFixed(2);
+			
+			//
+			sub_total += line_2_price * line_2_qty;
 
 			//
-
 			const line_3_qty = document.querySelector("#line-3-quantity").value;
 			console.log(line_3_qty);
 
+			//
 			const line_3_price = document.querySelector("#line-3-price").value;
 			console.log(line_3_price);
 
+			//
 			console.log(line_3_qty * line_3_price);
-			document.querySelector("#line-3").innerText = line_3_qty * line_3_price;
+			document.querySelector("#line-3").innerText = "$" + (line_3_qty * line_3_price).toFixed(2);
 
 			//
+			sub_total += line_3_price * line_3_qty;
 
+			//
 			const line_4_qty = document.querySelector("#line-4-quantity").value;
 			console.log(line_4_qty);
 
+			//
 			const line_4_price = document.querySelector("#line-4-price").value;
 			console.log(line_4_price);
 
+			//
 			console.log(line_4_qty * line_4_price);
-			document.querySelector("#line-4").innerText = line_4_qty * line_4_price;
+			document.querySelector("#line-4").innerText = "$" + (line_4_qty * line_4_price).toFixed(2);
+			
+			//
+			sub_total += line_4_price * line_4_qty;
+
 
 			// 
-
 			const line_5_qty = document.querySelector("#line-5-quantity").value;
 			console.log(line_5_qty);
 
+			//
 			const line_5_price = document.querySelector("#line-5-price").value;
 			console.log(line_5_price);
 
+			//
 			console.log(line_5_qty * line_5_price);
-			document.querySelector("#line-5").innerText = line_5_qty * line_5_price;
+			document.querySelector("#line-5").innerText = "$" + (line_5_qty * line_5_price).toFixed(2);
 
+			//
+			sub_total += line_5_price * line_5_qty;
 
+			// qs was used to locate the sub-total class and innerText was there to display the total onto the site. "$" was added so people will know the number is the money and .toFixed(2) was used to keep the total decimal to 2.
+			document.querySelector("#sub-total").innerText = "$" + sub_total.toFixed(2);
 
+			// the discount and tax values cant be changed which is why i used const instead of let
+			const discount = 0.10;
+			const tax = 0.12
 
-            /*
+			//
+			document.querySelector("#discount").innerHTML = (sub_total >= 250) ? "$" + (sub_total * discount).toFixed(2) : (0).toFixed(2);
 
-                Use the following steps to complete your assignment.
+			//
+			document.querySelector("#tax").innerHTML = (sub_total >= 0) ? "$" + (sub_total * discount + tax).toFixed(2) : (sub_total + tax).toFixed(2);
 
-                @NOTE: Do not include these comments in your final submission. 
-                       Your final submission MUST include your own comments.
+			//
+			document.querySelector("#Total").innerHTML = (sub_total >= 250) ? "$" + ((sub_total - sub_total * discount) + (sub_total * discount + tax)).toFixed(2) : (sub_total + tax).toFixed(2);
 
-                1. Retrieve the quantities & price for each line
-                2. Calculate the total for each line
-                3. Display each line total to the screen (Be sure to display the result to two decimal places)
-                4. Keep a running total for all lines
-                5. Display the sub-total to screen
-                6. Calculate if the discount should be applied, if so display the discount value to the screen
-                7. Calculate the tax on the sub-total
-                8. Display the calculated to the screen to two decimal places
-                
-            */
-
-		
 	    }
 
+		// qs is to locate the calculate btn and addEeventListener is "an action" so my numbers would calculate when i press the btn ("click", calculate)
 		document.querySelector("#calculate").addEventListener("click", calculate);
-	
 	
     </script>
 </body>
