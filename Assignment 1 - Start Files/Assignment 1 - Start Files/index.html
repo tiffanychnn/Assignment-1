@@ -94,112 +94,137 @@
 
 	<script>
 
+		// Tiffany Chan A01373270 - Assignment 1
+		
+		// the discount and tax values cant be changed which is why i used const instead of let
+		const discount = 0.10;
+		const tax = 0.12;
+
 		// function is where we put our info of what we want to happen when do a certain action (ex: calculate)
 	    function calculate() {
 		
 			// let can change. depending on that qty of what the person is looking at for our subtotal, it wont be the same if the qty changes (which would also affect your total)
 			let sub_total = 0;
-			let total = 0
+			let Total = 0;
 
-			//
-			console.log("Hello Airrick!");
+			// im creating new "let"s so it can make calculate easier for me later on. 
+			//The d.qs will help get the value of a specific line (ex: line-1-quantity)
+			let line_1_qty = document.querySelector("#line-1-quantity").value;
+			// did the same thing as above except this is for line-1-price
+			let line_1_price = document.querySelector("#line-1-price").value;
+			// i created a let total specifically for line 1 so "line_1_total" then im multiplying line_1_qty with line_1_price for line_1_total (they already have a "value" in them because of the lets i created earlier)
+			let line_1_total = line_1_qty * line_1_price;
+			// to display the total of line-1, i used d.qs and innerHTML to get the "value" of it and then i concatenate the $ so it will appear infront of numbers on the screen.
+			// the toFixed(2) is used here so that the numbers will round to two decimal
+			document.querySelector("#line-1").innerHTML = "$" + (line_1_total).toFixed(2);
+			// (help received from thomas) here i am assigning line_1_total to sub_total so that the other totals later wont replace it, but will add up instead
+			sub_total += line_1_total;
 
-			//
-			const line_1_qty = document.querySelector("#line-1-quantity").value;
-			console.log(line_1_qty);
+			// im creating new "let"s so it can make calculate easier for me later on. 
+			//The d.qs will help get the value of a specific line
+			let line_2_qty = document.querySelector("#line-2-quantity").value;
+			// did the same thing as above except this is for line-2-price
+			let line_2_price = document.querySelector("#line-2-price").value;
+			// i created a let total specifically for line 2 so "line_2_total" then im multiplying line_2_qty with line_2_price for line_2_total
+			let line_2_total = line_2_qty * line_2_price;
+			// to display the total of line-2, i used d.qs and innerHTML to get the "value" of it and then i concatenate the $ so it will appear infront of numbers on the screen.
+			// the toFixed(2) is used here so that the numbers will round to two decimal
+			document.querySelector("#line-2").innerHTML = "$" + (line_2_total).toFixed(2);
+			// i am assigning line_2_total to sub_total so that the other totals later wont replace it, but will add up instead
+			sub_total += line_2_total;
 
-			//
-			const line_1_price = document.querySelector("#line-1-price").value;
-			console.log(line_1_price);
+			// im creating new "let"s so it can make calculate easier for me later on. 
+			//The d.qs will help get the value of a specific line
+			let line_3_qty = document.querySelector("#line-3-quantity").value;
+			// did the same thing as above except this is for line-3-price
+			let line_3_price = document.querySelector("#line-3-price").value;
+			// i created a let total specifically for line 3 so "line_3_total" then im multiplying line_3_qty with line_3_price for line_3_total
+			let line_3_total = line_3_qty * line_3_price;
+			// to display the total of line-3, i used d.qs and innerHTML to get the "value" of it and then i concatenate the $ so it will appear infront of numbers on the screen.
+			// the toFixed(2) is used here so that the numbers will round to two decimal
+			document.querySelector("#line-3").innerHTML = "$" + (line_3_total).toFixed(2);
+			// i am assigning line_2_total to sub_total so that the other totals later wont replace it, but will add up instead
+			sub_total += line_3_total;
+
+			// im creating new "let"s so it can make calculate easier for me later on. 
+			//The d.qs will help get the value of a specific line
+			let line_4_qty = document.querySelector("#line-4-quantity").value;
+			// did the same thing as above except this is for line-4-price
+			let line_4_price = document.querySelector("#line-4-price").value;
+			// i created a let total specifically for line 4 so "line_4_total" then im multiplying line_4_qty with line_4_price for line_4_total
+			let line_4_total = line_4_qty * line_4_price;
+			// to display the total of line-4, i used d.qs and innerHTML to get the "value" of it and then i concatenate the $ so it will appear infront of numbers on the screen.
+			// the toFixed(2) is used here so that the numbers will round to two decimal
+			document.querySelector("#line-4").innerHTML = "$" + (line_4_total).toFixed(2);
+			// i am assigning line_4_total to sub_total so that the other totals later wont replace it, but will add up instead
+			sub_total += line_4_total;
+
+			// im creating new "let"s so it can make calculate easier for me later on. 
+			//The d.qs will help get the value of a specific line
+			let line_5_qty = document.querySelector("#line-5-quantity").value;
+			// did the same thing as above except this is for line-5-price
+			let line_5_price = document.querySelector("#line-5-price").value;
+			// i created a let total specifically for line 5 so "line_5_total" then im multiplying line_5_qty with line_5_price for line_5_total
+			let line_5_total = line_5_qty * line_5_price;
+			// to display the total of line-5, i used d.qs and innerHTML to get the "value" of it and then i concatenate the $ so it will appear infront of numbers on the screen.
+			// the toFixed(2) is used here so that the numbers will round to two decimal
+			document.querySelector("#line-5").innerHTML = "$" + (line_5_total).toFixed(2);
+			// i am assigning line_4_total to sub_total so that the other totals later wont replace it, but will add up instead
+			sub_total += line_5_total;
+
+			// all of these console.log are to help me check if the code is working properly
+			console.log(line_1_qty)
+			console.log(line_2_qty)
+			console.log(line_3_qty)
+			console.log(line_4_qty)
+			console.log(line_5_qty)
+			console.log(line_1_price)
+			console.log(line_2_price)
+			console.log(line_3_price)
+			console.log(line_4_price)
+			console.log(line_5_price)
 			
-			//
-			console.log(line_1_qty * line_1_price);
-			document.querySelector("#line-1").innerText = "$" + (line_1_price * line_1_qty).toFixed(2);
-
-			//
-			sub_total += line_1_price * line_1_qty;
-
-			//
-			const line_2_qty = document.querySelector("#line-2-quantity").value;
-			console.log(line_2_qty);
-
-			//
-			const line_2_price = document.querySelector("#line-2-price").value;
-			console.log(line_2_price);
-
-			//
-			console.log(line_2_qty  * line_2_price);
-			document.querySelector("#line-2").innerText = "$" + (line_2_qty  * line_2_price).toFixed(2);
+		    //------------------------------------------------------------------------------------------------------------------------
 			
-			//
-			sub_total += line_2_price * line_2_qty;
+			// to have the sub_total value display on the site, i used d.qs and innerHTML
+			// i then concatenate the $ so it would appear infront of the numbers, toFixed(2) was to round it to two decimal
+			document.querySelector("#sub-total").innerHTML = "$" + sub_total.toFixed(2);
 
-			//
-			const line_3_qty = document.querySelector("#line-3-quantity").value;
-			console.log(line_3_qty);
+			// ternary statement was used here so that i could calculate the discount
+			// i created a new let for the discount
+			// i wanted the users to have discount if their order was greater or equal to $250 so i did (sub_total >= 250) 
+			// if they're qualified for discount then the subtotal would multiply discount which is the 0.10, if they did not qualify for discount then there would be no discount which is the 0.00
+			// toFixed(2) was used again here to round the numbers to two decimal
+			let discount_val = (sub_total >= 250) ? (sub_total * discount).toFixed(2) : 0.00;
+			// d.qs and innerHTML was used here so i could have the discount display on the site. I also concatenate the $ so it would appear infront of the numbers (discount_val)
+			document.querySelector("#discount").innerHTML = "$" + discount_val;
 
-			//
-			const line_3_price = document.querySelector("#line-3-price").value;
-			console.log(line_3_price);
+			// (help received from josel and neal) 
+			// for the tax, i created a new let
+			// the calculation would be the sub_total subtracting discount_val and then multiplying the tax which is 0.12
+			let tax_val = (sub_total - discount_val) * tax;
+			// d.qs and innerHTML was used again so the tax "value" would show up on the site. I then concatenated the $ so it would show up infront of the numbers
+			// toFixed(2) was used so the numbers would round to two decimal
+			document.querySelector("#tax").innerHTML = "$" + tax_val.toFixed(2);
 
-			//
-			console.log(line_3_qty * line_3_price);
-			document.querySelector("#line-3").innerText = "$" + (line_3_qty * line_3_price).toFixed(2);
+			// (help received from josel and neal)
+			// for the grand total i didnt do let because im calculating all the other values FOR the total
+			// the calculation would be sub_total subtracting discount_val and then ADDING tax_val because it's the grand total, we don't multiply tax
+			Total = (sub_total - discount_val) + tax_val;
+			// d.qs and innerHTML was used to help the total display on the site. Again, i concatenated $ so it would appear infront of the numbers
+			// toFixed(2) again so the numbers would round to two decimal
+			document.querySelector("#Total").innerHTML = "$" + Total.toFixed(2);
 
-			//
-			sub_total += line_3_price * line_3_qty;
-
-			//
-			const line_4_qty = document.querySelector("#line-4-quantity").value;
-			console.log(line_4_qty);
-
-			//
-			const line_4_price = document.querySelector("#line-4-price").value;
-			console.log(line_4_price);
-
-			//
-			console.log(line_4_qty * line_4_price);
-			document.querySelector("#line-4").innerText = "$" + (line_4_qty * line_4_price).toFixed(2);
-			
-			//
-			sub_total += line_4_price * line_4_qty;
-
-
-			// 
-			const line_5_qty = document.querySelector("#line-5-quantity").value;
-			console.log(line_5_qty);
-
-			//
-			const line_5_price = document.querySelector("#line-5-price").value;
-			console.log(line_5_price);
-
-			//
-			console.log(line_5_qty * line_5_price);
-			document.querySelector("#line-5").innerText = "$" + (line_5_qty * line_5_price).toFixed(2);
-
-			//
-			sub_total += line_5_price * line_5_qty;
-
-			// qs was used to locate the sub-total class and innerText was there to display the total onto the site. "$" was added so people will know the number is the money and .toFixed(2) was used to keep the total decimal to 2.
-			document.querySelector("#sub-total").innerText = "$" + sub_total.toFixed(2);
-
-			// the discount and tax values cant be changed which is why i used const instead of let
-			const discount = 0.10;
-			const tax = 0.12
-
-			//
-			document.querySelector("#discount").innerHTML = (sub_total >= 250) ? "$" + (sub_total * discount).toFixed(2) : (0).toFixed(2);
-
-			//
-			document.querySelector("#tax").innerHTML = (sub_total >= 0) ? "$" + (sub_total * discount + tax).toFixed(2) : (sub_total + tax).toFixed(2);
-
-			//
-			document.querySelector("#Total").innerHTML = (sub_total >= 250) ? "$" + ((sub_total - sub_total * discount) + (sub_total * discount + tax)).toFixed(2) : (sub_total + tax).toFixed(2);
+			// console.log was used to help me check if the code is working properly
+			console.log(sub_total)
+			console.log(discount_val)
+			console.log(tax_total)
+			console.log(Total)
 
 	    }
 
 		// qs is to locate the calculate btn and addEeventListener is "an action" so my numbers would calculate when i press the btn ("click", calculate)
-		document.querySelector("#calculate").addEventListener("click", calculate);
+		document.getElementById("calculate").addEventListener("click", calculate);
 	
     </script>
 </body>
