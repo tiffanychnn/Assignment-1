@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK7_EX1</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+	<div id="carousel" style="text-align:center;">
+	    <div class="carousel-main">
+    	    <!-- this will be the main carousel image -->
+            <img id="main-image" src="images/first-slide.png" />    	    
+	    </div>
+	    
+	    <div class="carousel-nav">
+            <!-- these are to be navigation buttons -->
+            <!-- they will have one of two images set navCurr.png for the current otherwise navOff.png -->
+            <img class="nav-icon" src="images/nav/active.png" />
+            <img class="nav-icon" src="images/nav/inactive.png" />
+            <img class="nav-icon" src="images/nav/inactive.png" /> 
+
+            <!-- this will be the play/pause button that will have a event listener added to it with JavaScript-->
+            <img id="play-pause" src="images/nav/pause.png"/>
+
+	    </div>
+
+
+	</div>
+
+	<script>	
+
+        let current_index = 0;
+        let carousel_interval;
+        let playing = false;
+
+        const nav_icons = document.querySelectorAll(".nav-icon");	
+
+        const image_names = [
+            "first-slide.png",
+            "second-slide.png",
+            "third-slide.png"
+		];
+	 
+
+        const set_main_image = (index) => {
+
+            document.querySelector("#main-image").src = 
+                "images/" + image_names[index];
+
+            current_index = index;  
+
+            set_nav_buttons(index);
+    
+        }
+
+        const start_rotation = () => {
+            
+            carousel_interval = window.setInterval(set_next_image, 2500);
+
+            playing = true;
+
+        }   
+        
+        const play_btn = document.querySelector("#play-pause");
+
+        nav_icons.forEach( (icon, index) => {
+	 
+        icon.addEventListener("mouseover", () => {
+
+                set_main_image(index); 
+
+            });
+        }); 
+
+        const set_nav_buttons = (index) => {
+            
+            nav_icons.forEach((icon, loop_index) => {
+                icon.src = 
+                (loop_index == index) ? "images/nav/active.png" : "images/nav/inactive.png";
+            });
+    
+        } 
+
+        const set_next_image = () => {
+
+            const next_index = (current_index >= image_names.length - 1) ? 0 : current_index + 1;
+
+            set_main_image(next_index);
+
+        }   
+
+        const toggle_play_pause = () => {
+
+				if (playing) {	
+					
+					play_btn.src = "images/nav/play.png";
+					
+					window.clearInterval(carousel_interval);
+	 
+					playing = false;
+	 
+				} else {
+	 
+					play_btn.src = "images/nav/pause.png";
+					
+					start_rotation();
+	 
+				}
+			} 
+
+        window.addEventListener("load", start_rotation);
+
+        play_btn.addEventListener("click", toggle_play_pause);
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Background color for the entire page */
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* Styling for input fields */
+input[type="text"],
+input[type="number"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+/* Styling for buttons */
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add some margin to the buttons */
+button + button {
+    margin-left: 10px;
+}
+
+/* Styling for the result container */
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: left;
+}

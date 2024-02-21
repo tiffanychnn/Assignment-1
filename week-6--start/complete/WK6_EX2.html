@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/ex-2.css">
+    
+</head>
+<body>
+
+	<h1>MDIA 2294: WK6_EX3</h1>
+	
+	<div style="text-align:center;">
+	    <div><img id="main-image" /></div>	
+	    <div id="thumbnails"></div>	
+	</div>	
+
+	<script>	
+		const image_names = ["cat", "dog", "fish", "cow", "fox"];
+
+		const set_main_image = (image_index) => {
+
+
+
+			document.querySelector('#main-image').src = "images/" + image_names[image_index] + "Full.png";
+
+		}
+
+		const set_thumbnails = () => {
+
+			image_names.forEach( ( name, index ) => {
+
+				let new_thumb = document.createElement('img');
+
+				new_thumb.src = "images/" + name + "Thumb.png";	
+
+				new_thumb.classList.add("clickable");
+
+				new_thumb.addEventListener('click', () => {
+
+					set_main_image(index);
+
+				});
+
+				document.querySelector('#thumbnails').appendChild(new_thumb);
+
+			});
+
+
+		}
+
+		window.addEventListener('load', () => {
+			set_main_image(0);	
+			set_thumbnails();
+		});
+	
+	</script>
+	
+</body>
+</html>

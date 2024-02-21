@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    background-color: #f3f3f3;
+    padding-top: 30px;
+}
+
+.carousel-main img {            		
+    border-radius: 10px;
+    margin-bottom: 20px;            background-color: #333;
+    color: #fff;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-icon, #play-pause {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.nav-icon:hover, #play-pause:hover {
+    transform: scale(1.2);
+}
+
+#play-pause:hover {
+    transform: scale(1.2);
+}

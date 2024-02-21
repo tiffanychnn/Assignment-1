@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK6_EX1</title>
+	<link rel="stylesheet" href="../css/ex-1.css">
+
+</head>
+<body>
+
+	<h1>MDIA 2294: WK6_EX1</h1>
+	
+	<p>Start Value: <input id="start" type="text" type="number" /></p>
+	<p>End Value: <input id="end" type="text" type="number" /></p>
+	
+	
+    <p>
+        <button id="while">Show While Loop</button>
+        <button id="foreach">Show Foeach Loop</button>	    
+        <button id="for">Show For Loop</button>
+    </p>
+	
+	
+	<div id="result"></div>
+
+	<script>
+
+		const while_btn = document.querySelector("#while");
+		const foreach_btn = document.querySelector("#foreach");
+		const for_btn = document.querySelector("#for");
+
+	    function while_example() {
+	        // the while loop checks the criteria at the begining
+	        let current_num = parseInt(document.querySelector("#start").value);
+	        let ending_num = parseInt(document.querySelector("#end").value);
+	        let output_html = "<div>While Loop</div>";
+
+
+
+	        // While Example here
+			while (current_num <= ending_num) { 				
+				
+				if (current_num == 13) {
+					output_html += "<div>Unlucky Number!</div>";
+					current_num++;	
+					continue;	  	
+				}
+			
+				output_html += "<div>Current = " + current_num + "</div>";
+
+				current_num++;
+			}
+
+	        document.querySelector("#result").innerHTML = output_html;
+
+	    }
+        	
+        function for_example()
+        {
+            // the while loop checks the criteria at the begining
+            let ending_num = parseInt(document.querySelector("#end").value);
+            var output_html = "<div>For Loop (ignores start value)</div>";
+            
+			// For Example here
+			for (let i = 1; i <= ending_num; i++) {
+				output_html += "<div>Current = " + i + "</div>";
+			}
+			
+            document.querySelector("#result").innerHTML = output_html;    
+
+        }	
+
+		const foreach_example = () => {
+
+			let output_html = "<div>For Each Loop</div>";
+			
+			let favourite_foods = ["pizza", "pasta", "sushi", "ramen", "tacos", "burritos", "samosas", "poutine", "burgers", "fries"];	
+
+			favourite_foods.forEach(function(food) {
+				output_html += "<div>" + food + "</div>";
+			
+			});	
+
+			document.querySelector("#result").innerHTML = output_html;
+
+		}
+
+
+		while_btn.addEventListener("click", while_example);
+		foreach_btn.addEventListener("click", foreach_example);
+		for_btn.addEventListener("click", for_example);
+	
+	</script>	
+
+</body>
+</html>

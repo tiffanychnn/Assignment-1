@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8C2CA; /* Background color for the entire page */
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Styling for clickable images */
+img.clickable {
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+img.clickable:hover {
+    border-color: #007bff; /* Change border color on hover */
+}
+
+/* Styling for the main image */
+#main-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 10px;
+    height: auto;
+    border: 2px solid #007bff; /* Add a border to the main image */
+}
+
+/* Styling for the thumbnail container */
+#thumbnails {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styling for the thumbnail images */
+#thumbnails img {
+    max-width: 60px;
+    height: auto;
+}
+
+/* Center the thumbnails */
+#thumbnails div {
+    display: inline-block;
+    margin: 5px;
+}

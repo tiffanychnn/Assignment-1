@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK7_EX1</title>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+	<div id="carousel" style="text-align:center;">
+	    <div class="carousel-main">
+    	    <!-- this will be the main carousel image -->
+            <img id="main-image" src="images/first-slide.png" />    	    
+	    </div>
+	    
+	    <div class="carousel-nav">
+            <!-- these are to be navigation buttons -->
+            <!-- they will have one of two images set navCurr.png for the current otherwise navOff.png -->
+            <img class="nav-icon" src="images/nav/active.png" />
+            <img class="nav-icon" src="images/nav/inactive.png" />
+            <img class="nav-icon" src="images/nav/inactive.png" />
+
+			<img src="images/nav/pause.png" alt="Play Pause Button" id="play-pause">
+
+	    </div>
+
+		<button onclick="set_next_image();">Next</button>
+
+	</div>
+
+	<script>	
+
+		// create a variable to store the index position of the displayed image
+		let current_index = 0;
+		let carousel_interval;
+		let playing = false;
+		
+		const image_names = [
+			"first-slide.png", "second-slide.png", "third-slide.png"
+		];
+
+		const start_rotation = () => {
+
+		carousel_interval = window.setInterval(set_next_image, 2500);
+		playing = true;	
+
+		}
+
+		console.log(image_names[1]);
+
+		const set_main_image = (image_index) => {
+
+			console.log(document.querySelector("#main-images"));
+
+			document.querySelector("#main-image").src = "images/" + image_names[image_index];
+
+			current_index = image_index;
+
+			set_nav_buttons(current_index);
+		
+		}
+
+		// set_main_image(0);
+
+		const nav_icons = document.querySelectorAll(".nav-icon");
+
+		// console.log(nav_icon);
+
+		nav_icons.forEach( (nav_el, index) => {
+
+			nav_el.addEventListener("mouseover", () => {
+
+				set_main_image(index);
+			
+
+			});
+		});
+
+		const toggle_play_pause = () => {
+
+			// if currently playing, do the pause step
+			if(playing) {
+
+				document.querySelector("#play-pause").src = "images/nav/play.png";
+
+				window.clearInterval(carousel_interval);
+
+				playing = false;
+
+			// if currently NOT playing (playing is false), do the start stop
+			} else {
+
+				document.querySelector("#play-pause").src = "images/nav/pause.png"
+
+				start_rotation();
+
+			}
+
+		}
+
+		const set_next_image = () => {
+
+				// whats the next index?
+				const next_index = (current_index >= image_names.length - 1) ? 0 : current_index + 1;
+
+				// set the correct image
+				set_main_image(next_index);
+
+		}
+
+		const set_nav_buttons = (new_index) => {
+
+			const nav_icon = document.querySelectorAll(".nav-icon");
+
+			nav_icon.forEach( (nav_icon_el,loop_index) => {
+
+				console.log("hi")
+
+				nav_icon_el.src = (loop_index === new_index) ? "images/nav/active.png" : "images/nav/inactive.png"
+
+			});
+
+		}
+
+		// set_main_image(0);
+		// set_nav_buttons(current_index);
+
+		// this runs the function above
+		window.addEventListener("load", start_rotation);
+		document.querySelector("#play-pause").addEventListener("click", toggle_play_pause);
+
+	</script>
+
+</body>
+</html>

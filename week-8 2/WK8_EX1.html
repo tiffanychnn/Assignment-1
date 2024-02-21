@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294</title>
+	<link rel="stylesheet" href="css/ex-1.css">
+</head>
+<body>
+
+	<h1>MDIA 2294: WK8_EX1</h1>
+	
+	<div>Ask your question and then <button id="shake-btn">Answer</button></div>
+	<div>Answer: <span id="answer"></span></div>  
+
+	<script>
+	
+	const answers = [  "It is certain",
+                       "It is decidedly so",
+                       "Without a doubt",
+                       "Yes, definitely",
+                       "You may rely on it",
+                       "As I see it, yes",
+                       "Most likely",
+                       "Outlook good",
+                       "Yes",
+                       "Signs point to yes",
+                       "Reply hazy try again",
+                       "Ask again later",
+                       "Better not tell you now",
+                       "Cannot predict now",
+                       "Concentrate and ask again",
+                       "Don't count on it",
+                       "My reply is no",
+                       "My sources say no",
+                       "Outlook not so good",
+                       "Very doubtful"];
+
+            let progress = 0;
+            let timer;
+        
+        // Creates a new funciton that will select a random item in the array above
+        const get_answer = () => {
+
+            // Let's break down this code
+            // Math.random(); Returns a number between 0 - 0.999999999 etc
+            //      Example 0.3245868569
+            // Then that Number is multiplied by the length of the array minus 1
+            //      Example 6.16715028
+            // THen Math.floor will round the number above to 6
+            //      Example 6
+            // In th code below we will use this number to select a item in teh array 
+            const roll = Math.floor(Math.random() * (answers.length - 1)); 
+
+            // This displays on screen the selected item from the array above
+            // Using the detailed notes above, this would be
+            //      answers[6]
+            //      "Most Likely"
+            document.querySelector("#answer").innerHTML = answers[roll];
+
+        }
+
+        // Creates a new funciton to display a new answer or stop the interval
+        const update_progress = () => {
+
+            // If the global is less that or equal to 20...
+            if(progress <= 20) {
+
+                // Display an answer
+                get_answer();
+
+                // Increase by 1
+                progress++;
+            } else {
+
+                // Stop the repeating timer
+                clearInterval(timer);
+
+                // Reset progress back to 0
+                progress = 0;
+            }
+
+        }
+
+        const shake = () => {
+
+            // Start repeating the function update_progress above
+            //      Repeat it every 50ms
+            timer = setInterval(update_progress, 50);
+        }
+
+        // This calls our function above on the button's click
+        document.querySelector("#shake-btn").addEventListener("click", get_answer);
+
+        // Run the code with the user clicks quickly twice.
+        document.querySelector("#shake-btn").addEventListener("dblclick", shake);
+	
+	</script>
+    
+</body>
+</html>

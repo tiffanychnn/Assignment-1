@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294</title>
+	<style>
+		body {
+		  font-family: Arial, sans-serif;
+		  background-color: #f2f2f2;
+		  margin: 0;
+		  padding: 0;
+		}
+	  
+		h1 {
+		  text-align: center;
+		  color: #333;
+		}
+	  
+		div {
+		  margin: 10px;
+		  padding: 10px;
+		  background-color: #fff;
+		  border: 1px solid #ccc;
+		  border-radius: 5px;
+		}
+	  
+		button {
+		  background-color: #007bff;
+		  color: #fff;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer;
+		}
+	  
+		button:hover {
+		  background-color: #0056b3;
+		}
+	  </style>
+	  
+</head>
+<body>
+
+	<h1>MDIA 2294: WK8_EX2</h1>
+	
+	<div>Example 1: <span id="example-1"></span></div>
+	<div>Example 2: <span id="example-2"></span></div>
+	<div>Example 3: <span id="example-3"></span></div>
+
+    <div><button id="examples-btn">Show Examples</button></div>
+
+	<script>
+
+		const submit_btn = document.querySelector("#examples-btn");
+
+		class Movie {
+
+			constructor(t, y, d) {
+
+				this.title = t;
+				this.year = y;
+				this.director = d;
+
+			}
+
+			full_title() {
+
+				return this.title + " (" + this.year + ")" + " directed by " + this.director;
+
+			}
+
+		}
+
+		const show_examples = () => {
+
+			const movie_1 = {
+				title: "The Matrix",
+				year: 1999,
+				director: "The Wachowskis",
+			}
+
+			const movie_2 = {
+				title: "The Matrix Reloaded",
+				year_made: 2003,
+				director: "The Wachowskis",
+			}
+
+			const movie_3 = new Movie("The Matrix Revolutions", 2003, "The Wachowskis");
+
+			show_movie("#example-1", movie_1);
+			show_movie("#example-2", movie_2);
+			// show_movie("#example-3", movie_3);
+
+			document.querySelector("#example-3").innerHTML = movie_3.full_title();
+
+		}
+
+		const show_movie = (selector, movie) => {
+
+			document.querySelector(selector).innerHTML = 'The Move is ' + movie.title + ' (' + movie.year + ') directed by ' + movie.director + '.';
+		}
+
+		submit_btn.addEventListener("click", show_examples);
+
+	</script>	
+
+</body>
+</html>

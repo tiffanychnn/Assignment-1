@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Should I Wear Today?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>What Should I Wear Today?</h1>
+    <input type="text" id="current-condition" placeholder="Enter a weather condition"><br>
+    <button id="recommend">Make Recommendation</button>
+    <p>Recommendation: <span id="result" style="font-weight: bold;"></span></p>
+
+    <!-- Start Here -->
+
+    <script>
+
+        // i created a const for the button and used d.qs to "connect" it to recommend because thats the make recommendation 
+        const rec_btn = document.querySelector("#recommend");
+        
+        // i created a function for recommend so the it would read my code and make it "work"
+        function recommend() { 
+            // console.log("hello")
+
+            // for when we type a weather condition into the box
+            let condition = document.querySelector("#current-condition").value;
+            // console.log(condition)
+
+            // if the condition is snowy (when we type it in) then the result(recommendation) is going to  give "wear a sweater"
+            if (condition == "snowy") {
+                document.querySelector("#result").innerHTML = "wear a sweater"
+            
+            // or if the condition is rainy then it will pop up "wear a coat"
+            } else if (condition == "rainy") {
+                // console.log("it is rainy")
+                document.querySelector("#result").innerHTML = "wear a coat"
+            
+            // if we type anything other than the conditions it knows then it will say "sorry, no recommendations are available"
+            } else {
+                // console.log("it is not snowy")
+                document.querySelector("#result").innerHTML = "sorry, no recommendations are available"
+            }
+
+            // let result =
+            
+            
+            // if(snowy) {
+                
+            // }
+            
+            // if(windy) {
+
+            // }
+
+            // if(sunny) {
+                
+            // }
+
+            
+
+        }
+
+        // here i "referred" to the rec_btn const i made earlier, and used addEventListener so that it will be an action
+        // then i made the action to click and kind of "connected" it to recommend
+        rec_btn.addEventListener("click", recommend);
+
+    </script>
+</body>
+</html>

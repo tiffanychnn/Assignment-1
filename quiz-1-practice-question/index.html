@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 - Sample Practical Question</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <label for="bill-total">Bill Total</label>
+    <input type="number" id="bill-total">
+    <label for="quality">Service Quality</label>
+    <select id="quality">
+        <option value="0.25">Fantastic 25%</option>
+        <option value="0.2">Great 20%</option>
+        <option value="0.15">Satisfactory 15%</option>
+        <option value="0.05">Bad 5%</option>
+    </select><br>
+
+    <button id="calculate">Calculate Tip</button>
+    <p>Tip Total: <span id="total"></span></p>    
+
+    <script>
+
+        const calc_btn = document.querySelector("#calculate");
+
+        function calc_tip() {
+
+            let total = 0;
+
+            // const because we want the variable to always collect data (the numbers in bill total onsite)
+            const bill_total = document.querySelector("#bill-total").value;
+            
+            const quality = document.querySelector("#quality").value;
+
+            total = bill_total * quality;
+            document.querySelector("#total").innerHTML = "$" + total.toFixed(2);
+
+        }
+
+        calc_btn.addEventListener("click", calc_tip);
+
+    </script>
+</body>
+</html>
