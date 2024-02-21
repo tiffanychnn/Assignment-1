@@ -17,11 +17,60 @@
 
 	<script>
 
+		class Movie {
+
+			constructor(t, d, y) {
+
+				this.title = t;
+				this.director = d;
+				this.year = y;
+
+			}
+
+			full_title() {
+
+				return this.title + " by " + this.director + " (" + this.year + ")";
+			}
+
+		}
+
 		const submit_btn = document.querySelector("#examples-btn");
 
 		const show_examples = () => {
 
 			// Begin here
+			
+			// create an object and store it in the movie_1 variable
+			const movie_1 = {
+
+				title: " Everything Everywhere All at Once ", 
+				director: " Daniel Kwan and Daniel Scheinert ",
+				year: 2022
+
+			}
+
+			const movie_2 = {
+
+				title: " Entergalactic ",
+				director: " Fletcher Morris ",
+				year_made: 2022
+
+			}
+
+			const movie_3 = new Movie("Brick", "Rian Johnson", 2005)
+
+			// document.querySelector("#example-1").innerText = movie_1.title;
+			show_movie(movie_1, "#example-1");
+			show_movie(movie_2, "#example-2");
+			// show_movie(movie_3, "#example-3");
+
+			document.querySelector("#example-3").innerText = movie_3.full_title();
+
+		}
+
+		const show_movie = (movie_obj, selector_id) => {
+
+			document.querySelector(selector_id).innerText = "The Movie" + movie_obj.title + "was made in" + movie_obj.year + "by" + movie_obj.director;
 
 		}
 
