@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 11 - Exercise 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="grid">
+        <div class="span-12 text-center">
+            <h1 class="py-8 text-4xl font-bold">Movie List</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container mx-auto">
+            <div id="movie-list" class="grid grid-cols-12 gap-4">
+
+            </div>
+        </div>
+    </main>
+    <script>
+        const movies = [
+            {
+                title: "Spirited Away",
+                box_office: 355467939,
+                director: 'Hayao Miyazaki',
+                release_year: 2001,
+                poster: "img/spirited-away.png"
+            },
+            {
+                title: "Howl's Moving Castle",
+                box_office: 236000000,
+                director: 'Hayao Miyazaki',
+                release_year: 2004,
+                poster: "img/howls-moving-castle.jpg"
+
+            },
+            {
+                title: "Princess Mononoke",
+                box_office: 169700000,
+                director: 'Hayao Miyazaki',
+                release_year: 1997,
+                poster: "img/princess-mononoke.png"
+            }
+        ];
+
+        movies.forEach(movie => {
+
+            const movie_el = `
+                <div class="col-span-4 border border-slate-400 rounded-lg grid grid-cols-12 items-center">
+                    <img src="${movie.poster}" alt="${movie.title}" class="col-span-4"/>
+                    <div class="p-4 col-span-8">
+                        <h2 class="text-xl font-bold">${movie.title}</h2>
+                        <p>Director: ${movie.director}</p>
+                        <p>Release Date: ${movie.release_year}</p>
+                    </div>
+                </div>`;
+
+            document.querySelector('#movie-list').insertAdjacentHTML('beforeend', movie_el);
+        });
+    </script>
+</body>
+</html>

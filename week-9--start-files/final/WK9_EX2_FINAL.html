@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Todo Application</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-md py-10">
+      <h1 class="text-3xl font-bold mb-5">Simple Todo List</h1>
+      <form id="todo-form" class="mb-5">
+        <div class="flex">
+          <input type="text" id="todo-input" class="flex-1 rounded-l py-2 px-4 border-t border-b border-l border-gray-200 focus:outline-none focus:border-blue-500" required>
+          <button type="submit" class="bg-blue-500 text-white rounded-r py-2 px-4 hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Add</button>
+        </div>
+      </form>
+      <ul id="todo-list"></ul>
+    </div>
+    <script type="module" src="./js/todo-app.js"></script>
+  </body>
+</html>
