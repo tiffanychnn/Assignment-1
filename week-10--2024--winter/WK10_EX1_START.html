@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDIA 2294: WK9_EX2</title>	
+	<link rel="stylesheet" href="css/ex-1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" >
+
+		$(document).ready(function (){
+
+			// selects btn with the matching id
+			// .click(); runs a function () when the btn is clicked like a event listener
+			$("#test-1-btn").click(function () {
+
+				// selects the test-1-result span below, and changes the content/html to the string that is passed in
+				$("#test-1-result").html("wow! so easy!");
+
+			});
+
+			$("#test-2-btn").click(function () {
+
+				$("#test-2-result").html( $("#test-2-input").val () );
+
+			});
+
+			$("#test-3-btn").click(function () {
+
+				const user_number = $("#test-3-input").val();
+				const my_number = get_random(user_number);
+
+				$("#test-3-result").html(my_number);
+
+			});
+
+		});
+
+		// const get_random = (ending_number) => {
+
+		// 	return Math.
+
+		// }
+		
+
+    </script>
+
+
+</head>
+<body>
+
+	<h1>MDIA 2294: WK9_EX2</h1>
+	
+	<div>
+	    <button id="test-1-btn">Test 1</button>
+	</div>
+	<div>Test 1 Result: <span id="test-1-result"></span></div>
+
+    <hr />
+
+    <div>
+        <input id="test-2-input" type="text" />
+	    <button id="test-2-btn">Test 2</button>
+	</div>
+	<div>Test 2 Result: <span id="test-2-result"></span></div>
+
+    <hr />
+    
+    <div>
+        Number between 0 and <input id="test-3-input" type="number" value="10">
+	    <button id="test-3-btn">Test 3</button>
+	</div>
+	<div>Test 3 Result: <span id="test-3-result"></span></div>
+</body>
+</html>
