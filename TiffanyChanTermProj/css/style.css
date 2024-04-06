@@ -17,10 +17,6 @@ header {
     background-color: black;
 }
 
-.headtext {
-    /* padding: 20px; */
-}
-
 .subtext {
     padding: 20px;
 }
@@ -159,15 +155,10 @@ footer img:hover {
 
 /* ---media queries--- */
 
-
-
 @media screen and (max-width: 768px) {
     .prodcard {
         grid-template-columns: 1fr;
     }
-    /* .grid-container {
-        grid-template-columns: repeat(8, 1fr);
-    } */
 }
 
 @media screen and (min-width: 1440px) {
@@ -175,15 +166,4 @@ footer img:hover {
     .prodcard {
         grid-template-columns: 1fr 1fr 1fr; 
     }
-    /* header {
-        padding: 20px;
-    }
-
-    .logo img {
-        width: 120px;
-    }
-
-    nav ul li {
-        margin-left: 20px;
-    } */
 }

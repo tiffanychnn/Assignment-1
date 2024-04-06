@@ -123,9 +123,27 @@ footer img:hover {
     opacity: 50%;
 }
 
+.carousel {
+    box-sizing: border-box;
+}
+
+.carousel-cell {
+    width: 66%;
+    height: 500px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-cell::before {
+    display: block;
+    content: "";
+}
+
 /* ---media queries--- */
 
-@media screen and (min-width: 375px) {
+/* @media screen and (min-width: 375px) {
     .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -151,4 +169,17 @@ footer img:hover {
         margin-left: 20px;
     }
 }
+} */
+
+@media screen and (max-width: 768px) {
+    .prodcard {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .prodcard {
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
 }
