@@ -27,29 +27,99 @@
 
     <img class="banner" src="img/about-banner.jpg" alt="Nicole banner">
 
-    <h1 class="headtext">Nicole Zefanya</h1>
+    <h1 class="headtext" id="element">nicole zefanya</h1>
     <p class="intro">Nicole Zefanya, commonly known as NIKI, is a rising Indonesian singer-songwriter who has captivated audiences worldwide with her soulful voice and introspective lyrics. Born in Jakarta, Indonesia, NIKI began her musical journey at a young age, drawing inspiration from a diverse range of genres including R&B, pop, and jazz. With her distinctive sound and heartfelt storytelling, she has quickly gained recognition in the music industry, collaborating with renowned artists and amassing a devoted fan base. NIKI's artistry shines through in her debut album "MOONCHILD," where she showcases her versatility and maturity as an artist, solidifying her position as one of the most promising talents in contemporary music. NIKI's music is characterized by its emotional depth and authenticity, reflecting her own experiences and observations of the world around her. Beyond her musical talents, she exudes a genuine warmth and relatability that resonates with fans of all ages. As she continues to evolve as an artist, NIKI remains committed to pushing boundaries and exploring new sonic territories, earning her acclaim as a trailblazer in the global music scene. With a bright future ahead, NIKI continues to inspire audiences with her compelling storytelling and infectious melodies, cementing her status as a true visionary in the world of music.</p>
 
-    <footer>
-        <h3 class="foottext">Based off of https://nikizefanya.com/</h3>
-
-        <div class="socials">
-            <a href="https://www.instagram.com/nikizefanya/?hl=en" target="_blank"><img src="img/insta.png" alt="Instagram icon"></a>
-            <a href="https://www.youtube.com/channel/UCaAWRu53UW815hGTmxvHFbA" target="_blank"><img src="img/yt.png" alt="Youtube icon"></a>
-            <a href="https://twitter.com/nikizefanya?lang=en" target="_blank"><img src="img/twt.png" alt="Twitter icon"></a>
-            <a href="https://www.facebook.com/NIKIZefanya" target="_blank"><img src="img/fb.png" alt="Facebook icon"></a>
-        </div>
-    </footer>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <div class="carousel" data-flickity='{"autoPlay": true}'>
         <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
-        <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
-        <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
-        <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
-        <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
+        <div class="carousel-cell" style="background-image: url(img/carFull.jpeg) ;"></div>
+        <div class="carousel-cell" style="background-image: url(img/headFull.jpeg) ;"></div>
+        <div class="carousel-cell" style="background-image: url(img/moonFull.jpg) ;"></div>
+        <div class="carousel-cell" style="background-image: url(img/nightFull.jpg) ;"></div>
     </div>
 
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- text plugin  -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+
+    <style>
+        .headtext{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(0, 0, 0); text-align: left;}
+        .header{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(117, 101, 101); text-align: left;}
+    </style>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+
+        gsap.to("#element", {
+            text: {
+                value: "NICOLE ZEFANYA",
+                newClass: "header",
+                oldClass: "headtext",
+            }, 
+            duration: 3,
+            repeat:-1,
+            yoyo:true,
+            ease: "power1"
+        });
+    </script>
+
+    <!-- responsive slides plugin  -->
+    <script src="responsiveslides.min.js"></script>
+    <script src="plugin/rslides.js"></script>
+
+    <!-- <script>
+        window.onload = function() {
+            $(".rslides").responsiveSlides();
+        };
+    </script> -->
+
+    <ul class="rslides">
+        <li>
+            <blockquote>
+                Tonight was the first time I stared into seas of beguiling sepia two years ago
+            </blockquote>
+        </li>
+
+        <li>
+            <blockquote>
+                And the first time I learned real world superpowers lived in three words they revitalize my fraying bones, oh
+            </blockquote>
+        </li>
+
+        <li>
+            <blockquote>
+                Now what do you do when your pillar crumbled down you've lost all solid ground
+            </blockquote>
+        </li>
+
+        <li>
+            <blockquote>
+                Both dreams and demons drowned and this void's all you've found and doubts light it aglow?
+            </blockquote>
+        </li>
+    </ul>
+
+    <!-- footer  -->
+
+    <footer>
+        <div class="footer-cont">
+            <h3>Based off of <a href="https://nikizefanya.com/" class="hover-link" target="_blank">https://nikizefanya.com/</a></h3>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <div class="socials">
+                <a href="https://www.instagram.com/nikizefanya/?hl=en" target="_blank"><img src="img/insta.png" alt="Instagram icon"></a>
+                <a href="https://www.youtube.com/channel/UCaAWRu53UW815hGTmxvHFbA" target="_blank"><img src="img/yt.png" alt="Youtube icon"></a>
+                <a href="https://twitter.com/nikizefanya?lang=en" target="_blank"><img src="img/twt.png" alt="Twitter icon"></a>
+                <a href="https://www.facebook.com/NIKIZefanya" target="_blank"><img src="img/fb.png" alt="Facebook icon"></a>
+            </div>
+        </div>    
+    </footer>
 
 </body>
 </html>

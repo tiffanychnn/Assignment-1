@@ -27,15 +27,18 @@
 
     <img class="banner" src="img/banner.jpeg" alt="Nicole banner">
 
-    <!-- <h1 class="subtext">Merch</h1> -->
     <div class="page">
-        <div class="header"><h1 class="headtext">Latest Releases</h1></div>
+        <div class="header">
+            <h1 class="headtext" id="element">latest releases</h1>
+        </div>
         <div class="prodcard">
             <img src="img/single.jpeg" alt="24 single">
             <img src="img/nicole-album.png" alt="Nicole album">
             <img src="img/lowkey-single.jpg" alt="Lowkey single">
         </div>
-        <div class="header"><h1 class="headtext">Merch</h1></div>
+        <div class="header">
+            <h1 class="headtext" id="element2">Merch</h1>
+        </div>
         <div class="prodcard">
             <img src="img/black-hoodie.png" alt="Niki 2023 hoodie">
             <img src="img/guess-hoodie.png" alt="Niki x Guess hoodie">
@@ -43,10 +46,48 @@
         </div>
     </div>
 
-    <!-- <h1 class="subtext">Merch</h1> -->
+    <!-- text plugin  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+    
+    <style>
+        .headtext{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(0, 0, 0); text-align: left;}
+        .header{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(117, 101, 101); text-align: left;}
+    </style>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+
+        gsap.to("#element", {
+            text: {
+                value: "LATEST RELEASES",
+                newClass: "header",
+                oldClass: "headtext",
+            }, 
+            duration: 3,
+            repeat:-1,
+            yoyo:true,
+            ease: "power1"
+        });
+
+        gsap.to("#element2", {
+            text: {
+                value: "MERCH",
+                newClass: "header",
+                oldClass: "headtext",
+            }, 
+            duration: 2,
+            repeat:-1,
+            yoyo:true,
+            ease: "power1"
+        });
+    </script>
+
+
+    <!-- footer  -->
 
     <footer>
-        <h3 class="foottext">Based off of https://nikizefanya.com/</h3>
+        <h3>Based off of <a href="https://nikizefanya.com/" class="hover-link" target="_blank">https://nikizefanya.com/</a></h3>
         <ul class="links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
