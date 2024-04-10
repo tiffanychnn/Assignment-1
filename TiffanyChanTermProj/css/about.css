@@ -90,17 +90,19 @@ nav ul li a:hover::after {
     overflow: hidden;
     width: 100%;
     padding: 0;
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
 }
   
   .rslides li {
-    -webkit-backface-visibility: hidden;
     position: absolute;
     display: none;
     width: 100%;
     left: 0;
     top: 0;
+    font-size: 22px;
 }
   
   .rslides li:first-child {
