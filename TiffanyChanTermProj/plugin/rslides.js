@@ -1,3 +1,3 @@
-$(function (){
-    $(".rslides").responsiveSlides();
-});
+  $(function() {
+    $(".rslides").responsiveSlideS();
+  });

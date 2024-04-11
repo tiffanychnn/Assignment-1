@@ -96,7 +96,7 @@ nav ul li a:hover::after {
     font-family: 'Courier New', Courier, monospace;
 }
   
-  .rslides li {
+.rslides li {
     position: absolute;
     display: none;
     width: 100%;
@@ -105,7 +105,7 @@ nav ul li a:hover::after {
     font-size: 22px;
 }
   
-  .rslides li:first-child {
+.rslides li:nth-child(1){
     position: relative;
     display: block;
     float: left;

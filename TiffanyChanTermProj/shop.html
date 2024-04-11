@@ -27,7 +27,7 @@
 
     <!-- <img class="banner" src="img/24-banner.jpg" alt="Nicole banner"> -->
     <div style="width: 100%; height: 700px;"
-        data-vide-bg="vid/ocean.mp4" data-vide-options="loop: true, muted: false, position: 0% 0%">
+        data-vide-bg="./vid/bloom.mp4" data-vide-options="loop: true, muted: false, position: 0% 0%">
     </div>
 
     <div class="page">
@@ -73,13 +73,13 @@
     <!--  vide plugin  -->
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="plugin/jquery.vide.js">
+    <script src="./plugin/jquery.vide.js">
 
-        $('#myBlock').vide("vid/ocean.mp4");
-        $('#myBlock').vide("vid/ocean.mp4", {
+        $('#myBlock').vide("./vid/bloom.mp4");
+        $('#myBlock').vide("./vid/bloom.mp4", {
         });
         $('#myBlock').vide({
-        mp4: "vid/ocean.mp4",
+        mp4: "./vid/bloom.mp4",
         }, {
         });
         $('#myBlock').vide('extended path as a string', 'options as a string');
