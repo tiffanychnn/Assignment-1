@@ -24,18 +24,29 @@
             </ul>
         </nav>
     </header>
-
-    <!-- <img class="banner" src="img/about-banner.jpg" alt="Nicole banner"> -->
+    
+     <!-- this is for the video plugin
+    i created a div for the video specifically and styled it to the size i want
+    the video is connected by data-vide-bg so it will be a background data-vide-options
+    the data-vide-options are basically settings for the video, here the video is looped, the video is muted, the video is positioned -->
     <div style="width: 100%; height: 700px;"
-        data-vide-bg="vid/stars.mp4" data-vide-options="loop: true, muted: false, position: 0% 0%">
+        data-vide-bg="vid/stars.mp4" data-vide-options="loop: true, muted: true, position: 0% 0%">
     </div>
 
+    <!-- this has a class of headtext and an id called "element" which will be used to help us for the plugin later -->
     <h1 class="headtext" id="element">nicole zefanya</h1>
     <p class="intro">Nicole Zefanya, commonly known as NIKI, is a rising Indonesian singer-songwriter who has captivated audiences worldwide with her soulful voice and introspective lyrics. Born in Jakarta, Indonesia, NIKI began her musical journey at a young age, drawing inspiration from a diverse range of genres including R&B, pop, and jazz. With her distinctive sound and heartfelt storytelling, she has quickly gained recognition in the music industry, collaborating with renowned artists and amassing a devoted fan base. NIKI's artistry shines through in her debut album "MOONCHILD," where she showcases her versatility and maturity as an artist, solidifying her position as one of the most promising talents in contemporary music. NIKI's music is characterized by its emotional depth and authenticity, reflecting her own experiences and observations of the world around her. Beyond her musical talents, she exudes a genuine warmth and relatability that resonates with fans of all ages. As she continues to evolve as an artist, NIKI remains committed to pushing boundaries and exploring new sonic territories, earning her acclaim as a trailblazer in the global music scene. With a bright future ahead, NIKI continues to inspire audiences with her compelling storytelling and infectious melodies, cementing her status as a true visionary in the world of music.</p>
 
-    
+    <!-- flickity plugin -->
+
+    <!-- this connects to the flickity library with cdn -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
+    <!-- this is a carousel class to keep everything in a "container"
+    we made the carouself autoplay
+    inside the div there are cells for each image so we linked it by using style background image
+    we did the same for each images
+    -->
     <div class="carousel" data-flickity='{"autoPlay": true}'>
         <div class="carousel-cell" style="background-image: url(img/pfp.jpg) ;"></div>
         <div class="carousel-cell" style="background-image: url(img/carFull.jpeg) ;"></div>
@@ -45,19 +56,29 @@
     </div>
 
     <!-- text plugin  -->
-   
 
+    <!-- this is connecting to the gsap library using cdn  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <!-- this is importing the TextPlugin from gsap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
 
+    <!-- here is just a style block for my text so that when they change, the style will be different -->
     <style>
         .headtext{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(0, 0, 0); text-align: left;}
         .header{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(117, 101, 101); text-align: left;}
     </style>
 
+    <!-- this is the javascript part where we make the changes happen -->
     <script>
+
+        // this part is where we register the textplugin with gsap so that the animations will work later
         gsap.registerPlugin(TextPlugin);
 
+        // this is linking to the element id we created 
+        // we want the text to change the value to be "NICOLE ZEFANYA"
+        // the newClass will be sort of refering to the style we want our text to be, so the new text would have header style
+        // while the oldClass will have the headtext style
         gsap.to("#element", {
             text: {
                 value: "NICOLE ZEFANYA",
@@ -72,11 +93,17 @@
     </script>
 
     <!-- responsive slides plugin  -->
+
+    <!-- this imports the jquery library using cdn -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    
+    <!-- this is importing the js file for the plugin to work -->
     <script src="./plugin/responsiveslides.min.js"></script>
-    <script src="plugin/responsiveslides.js"></script>
+
+    <!-- same thing as above, importing a js file for the plugin to work -->
     <script src="./plugin/rslides.js"></script>
 
+    <!-- this is the ul of blockquotes of the lyrics i want -->
     <ul class="rslides">
         <li>
             <blockquote>
@@ -111,9 +138,14 @@
 
     <!--  vide plugin  -->
 
+    <!-- we are linking the jquery using cdn -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- this imports the javascript file -->
     <script src="./plugin/jquery.vide.js">
  
+        // these is using jquery to select the id of "myBlock" and the vide function (could be linke to plugins code so it can have settings for the video playback)
+        // the video i want is inside the function
          $('#myBlock').vide("vid/stars.mp4");
          $('#myBlock').vide("vid/stars.mp4", {
          });

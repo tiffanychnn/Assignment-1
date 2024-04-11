@@ -25,13 +25,18 @@
         </nav>
     </header>
 
-    <!-- <img class="banner" src="img/24-banner.jpg" alt="Nicole banner"> -->
+     <!-- this is for the video plugin
+    i created a div for the video specifically and styled it to the size i want
+    the video is connected by data-vide-bg so it will be a background data-vide-options
+    the data-vide-options are basically settings for the video, here the video is looped, the video is muted, the video is positioned -->
     <div style="width: 100%; height: 700px;"
-        data-vide-bg="./vid/bloom.mp4" data-vide-options="loop: true, muted: false, position: 0% 0%">
+        data-vide-bg="./vid/bloom.mp4" data-vide-options="loop: true, muted: true, position: 0% 0%">
     </div>
 
     <div class="page">
         <div class="header">
+
+            <!-- this has a class of headtext and an id called "element" which will be used to help us for the plugin later -->
             <h1 class="headtext" id="element">shop</h1>
         </div>
         <div class="prodcard">
@@ -44,19 +49,30 @@
         </div>
     </div>
 
-    <!-- text plugin  -->
+    <!-- gsap text plugin  -->
 
+    <!-- this is connecting to the gsap library using cdn  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    
+    <!-- this is importing the TextPlugin from gsap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
 
+    <!-- here is just a style block for my text so that when they change, the style will be different -->
     <style>
         .headtext{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(0, 0, 0); text-align: left;}
         .header{font-family: Ibarra Real Nova; font-size: 30px; color: rgb(117, 101, 101); text-align: left;}
     </style>
 
+    <!-- this is the javascript part where we make the changes happen -->
     <script>
+
+        // this part is where we register the textplugin with gsap so that the animations will work later
         gsap.registerPlugin(TextPlugin);
 
+        // this is linking to the element id we created 
+        // we want the text to change the value to be "SHOP"
+        // the newClass will be sort of refering to the style we want our text to be, so the new text would have header style
+        // while the oldClass will have the headtext style
         gsap.to("#element", {
             text: {
                 value: "SHOP",
@@ -70,11 +86,16 @@
         });
     </script>
 
-    <!--  vide plugin  -->
+    <!--  videp plugin  -->
 
+    <!-- we are linking the jquery using cdn -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- this imports the javascript file -->
     <script src="./plugin/jquery.vide.js">
 
+        // these is using jquery to select the id of "myBlock" and the vide function (could be linke to plugins code so it can have settings for the video playback)
+        // the video i want is inside the function
         $('#myBlock').vide("./vid/bloom.mp4");
         $('#myBlock').vide("./vid/bloom.mp4", {
         });

@@ -84,6 +84,7 @@ nav ul li a:hover::after {
 
 /* rslides plugin  */
 
+/* these are mainly the style/setting for the blockquotes */
 .rslides {
     position: relative;
     list-style: none;
@@ -178,6 +179,9 @@ footer img:hover {
     opacity: 50%;
 }
 
+/* carousel plugin */
+
+/* these control the sizing and display of the carousel */
 .carousel {
     box-sizing: border-box;
     margin-top: 30px;
